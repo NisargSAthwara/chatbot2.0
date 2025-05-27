@@ -1,0 +1,20 @@
+# __pycache__/
+# venv/
+# .env
+# .git/
+# .gitignore
+# .ipynb_checkpoints/
+# *.ipynb
+# README.md
+
+__pycache__/
+*.pyc
+*.log
+*.zip
+*.tar
+node_modules/
+.env
+venv/
+datasets/
+*.pt
+*.bin
