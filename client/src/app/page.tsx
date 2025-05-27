@@ -32,7 +32,7 @@ const Home = () => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [checkpointId, setCheckpointId] = useState(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (currentMessage.trim()) {
       // First add the user message to the chat
@@ -79,7 +79,8 @@ const Home = () => {
         // Connect to SSE endpoint using EventSource
         const eventSource = new EventSource(url);
         let streamedContent = "";
-        let searchData = null;
+        // let searchData = null;
+        let searchData: { stages: string[]; query: string; urls: string[] } | null = null;
         let hasReceivedContent = false;
 
         // Process incoming messages
@@ -230,9 +231,9 @@ const Home = () => {
     <div className="flex justify-center bg-gray-100 min-h-screen py-8 px-4">
       {/* Main container with refined shadow and border */}
       <div className="w-[70%] bg-white flex flex-col rounded-xl shadow-lg border border-gray-100 overflow-hidden h-[90vh]">
-        <Header />
-        <MessageArea messages={messages} />
-        <InputBar currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} onSubmit={handleSubmit} />
+            < Header />
+            <MessageArea messages={messages} />
+            <InputBar currentMessage={currentMessage} setCurrentMessage={setCurrentMessage} onSubmit={handleSubmit} />
       </div>
     </div>
   );
