@@ -71,7 +71,7 @@ const Home = () => {
         ]);
 
         // Create URL with checkpoint ID if it exists
-        let url = `https://chatbot-latest-j0rh.onrender.com/chat_stream/${encodeURIComponent(userInput)}`;  
+        let url = `${process.env.NEXT_PUBLIC_API_URL}/chat_stream/${encodeURIComponent(userInput)}`;  
         if (checkpointId) {
           url += `?checkpoint_id=${encodeURIComponent(checkpointId)}`;
         }
